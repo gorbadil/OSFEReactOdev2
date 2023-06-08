@@ -87,3 +87,7 @@ form > button {
   width: 100px;
   padding: 3px;
 }
+.deletebtn {
+  color: red;
+  margin-right: 10px;
+}

@@ -5,11 +5,11 @@ import List from "./List";
 export default function Todo() {
   const [todos, setTodos] = useState([
     {
-      item: "item 1",
+      item: "Learn React",
       complete: false,
     },
     {
-      item: "item 2",
+      item: "Learn HTML-CSS",
       complete: true,
     },
   ]);

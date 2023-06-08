@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function List({ todos, setTodos }) {
   const onClickEvent = (e) => {
@@ -25,12 +25,25 @@ export default function List({ todos, setTodos }) {
   const allList = () => {
     setFiltered(todos);
   };
-
+  useEffect(() => {
+    setFiltered(todos);
+  }, [todos]);
+  const deleteItem = (e) => {
+    const index = e.target.getAttribute("index");
+    const newList = todos[index];
+    const newTodos = todos.filter((item) => {
+      return item !== newList;
+    });
+    setTodos(newTodos);
+  };
   return (
     <div>
       <ul>
         {filtered.map((item, index) => (
           <li key={index} index={index} className="todoitem">
+            <span className="deletebtn" index={index} onClick={deleteItem}>
+              X
+            </span>
             <input
               type="text"
               index={index}

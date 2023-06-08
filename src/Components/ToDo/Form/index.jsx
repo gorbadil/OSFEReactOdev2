@@ -7,6 +7,10 @@ export default function Form({ todos, setTodos }) {
   };
   const onSubmitEvent = (e) => {
     e.preventDefault();
+    if (todovalue === "") {
+      alert("Please enter a todo");
+      return;
+    }
     setTodos([
       ...todos,
       {
@@ -14,7 +18,7 @@ export default function Form({ todos, setTodos }) {
         complete: false,
       },
     ]);
-      setTodoValue("")
+    setTodoValue("");
   };
   return (
     <div>
