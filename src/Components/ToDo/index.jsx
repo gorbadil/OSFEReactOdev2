@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Form from "./Form";
 import List from "./List";
 
-function ToDo() {
-  const [todoList, setTodoList] = useState(["birinci", "ikinci"]);
+export default function Todo() {
+  const [todos, setTodos] = useState([
+    {
+      item: "item 1",
+      complete: false,
+    },
+    {
+      item: "item 2",
+      complete: true,
+    },
+  ]);
   return (
-    <div>
-      <Form todoList={todoList} setTodoList={setTodoList} />
-      <List todoList={todoList} />
+    <div className="todos">
+      <Form todos={todos} setTodos={setTodos} />
+      <List todos={todos} setTodos={setTodos} />
     </div>
   );
 }
-
-export default ToDo;

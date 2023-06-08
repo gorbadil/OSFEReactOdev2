@@ -1,7 +1,89 @@
-.App{
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.done {
+  color: grey;
+  text-decoration: line-through;
+  transition: 300ms;
+}
+
+.todos {
+  background-color: whitesmoke;
+  padding: 20px;
+  width: 600px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form > input::placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+form > input,
+form > button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.addButton {
+  border: none;
+  background-color: blueviolet;
+  color: white;
+  font-weight: bolder;
+  margin: 10px 0;
+  border-radius: 10px;
+  transition: 300ms;
+}
+.addButton:hover {
+  background-color: white;
+  color: blueviolet;
+  transition: 300ms;
+  outline: 3px solid blueviolet;
+}
+
+.todoitem {
+  list-style: none;
+  padding: 3px;
+  font-size: 1.5rem;
+}
+
+.editbutton {
+  float: right;
+}
+
+.todoinput {
+  border: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+  width: 80%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.choosebtn {
+  margin: 5px 15px;
+  width: 100px;
+  padding: 3px;
 }

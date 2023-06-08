@@ -1,27 +1,33 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-function Form({ todoList, setTodoList }) {
-  const [todo, setTodo] = useState("");
+export default function Form({ todos, setTodos }) {
+  const [todovalue, setTodoValue] = useState("");
   const onChangeEvent = (e) => {
-    setTodo(e.target.value);
+    setTodoValue(e.target.value);
   };
-    const setSubmit = (e) => {
-      e.preventDefault()
-        setTodoList([...todoList, todo]);
-        setTodo("")
+  const onSubmitEvent = (e) => {
+    e.preventDefault();
+    setTodos([
+      ...todos,
+      {
+        item: todovalue,
+        complete: false,
+      },
+    ]);
+      setTodoValue("")
   };
   return (
     <div>
-      <form onSubmit={setSubmit}>
-        <input
-          placeholder="Add ToDo To List"
-          onChange={onChangeEvent}
-          value={todo}
-        />
-        <button>Add ToDo</button>
-      </form>
+      <div>
+        <form onSubmit={onSubmitEvent}>
+          <input
+            value={todovalue}
+            placeholder="Add To-Do"
+            onChange={onChangeEvent}
+          />
+          <button className="addButton">Add To Do</button>
+        </form>
+      </div>
     </div>
   );
 }
-
-export default Form;
